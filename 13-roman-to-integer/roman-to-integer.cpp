@@ -14,14 +14,15 @@ public:
     }
     int romanToInt(string s) {
         int result=0;
-        for(int i=0;i<s.length();i++){
-            if(i+1<s.length()&&char2num(s[i])<char2num(s[i+1])){
+        for(int i=0;i<s.length()-1;i++){
+            if(char2num(s[i])<char2num(s[i+1])){
                 result-=char2num(s[i]);
             }
             else{
                 result+=char2num(s[i]);
             }
         }
+        result+=char2num(s[s.length()-1]);
         return result;
     }
 };
